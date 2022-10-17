@@ -10,6 +10,7 @@ const Container = styled.div`
   width: 150px;
   height: 300px;
   justify-content: center;
+
   flex-direction: column;
   @media only screen and (min-width: 300px) {
     width: 150px;

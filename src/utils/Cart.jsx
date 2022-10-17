@@ -5,28 +5,41 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Cart from "../Components/Cart/Cart";
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
-import { ArrowBack, ShoppingBagOutlined } from "@mui/icons-material";
+import {
+  AccountCircleOutlined,
+  ArrowBack,
+  ShoppingBagOutlined,
+} from "@mui/icons-material";
 const Container = styled.div`
   display: flex;
-  background-color: goldenrod;
   position: sticky;
   top: 0;
-  padding: 20px;
 `;
 const Nav = styled.div`
   display: flex;
+  background-color: goldenrod;
+  position: sticky;
+
+  padding: 20px;
+  flex: 6;
+`;
+const Branding = styled.div`
+  display: flex;
+  flex: 2;
+`;
+const Icons = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 const Heading = styled.h2`
   display: flex;
   margin: 0;
 `;
 const Button = styled.button`
-  padding: 5px 10px;
-  z-index: +1;
-  position: fixed;
-  top: 0;
-  right: 10px;
-  padding: 15px;
+  display: flex;
+  margin-bottom: -40px;
+  position: absolute;
+  z-index: 1;
   background-color: transparent;
   font-size: 20px;
   border: none;
@@ -77,15 +90,28 @@ export default function SwipeableTemporaryDrawer() {
       </React.Fragment>
 
       <Nav>
-        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-          <Heading>Ekart</Heading>
-        </Link>
+        <Branding>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Heading>Ekart</Heading>
+          </Link>
+        </Branding>
+        <Icons>
+          <Link
+            to="/account"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            {" "}
+            <AccountCircleOutlined fontSize="large" />{" "}
+          </Link>
 
-        <Button onClick={toggleDrawer("right", true)}>
-          <Badge badgeContent={Number} color="primary">
+          <Badge
+            badgeContent={Number}
+            color="primary"
+            onClick={toggleDrawer("right", true)}
+          >
             <ShoppingBagOutlined fontSize="large" />
           </Badge>
-        </Button>
+        </Icons>
       </Nav>
     </Container>
   );

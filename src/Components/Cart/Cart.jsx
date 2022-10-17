@@ -123,6 +123,7 @@ const Input = styled.input`
 export default function Cart() {
   const [amount, setAmount] = useState(0);
   const [Products, setProducts] = useState([]);
+
   const [isEmpty, setEmpty] = useState(false);
   useEffect(() => {
     if (!isNaN(localStorage.getItem("cart"))) setEmpty(true);
